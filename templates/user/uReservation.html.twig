@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello UserController!{% endblock %}
+
+{% block body %}
+    <section class="container">
+    <h1 class="text-center text-muted">Mes réservations</h1>
+    <section class="row">
+        {% for reservation in reservations %}
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                {# <img src="{{product.picture}}" class="card-img-top" alt="..."> #}
+                <div class="card-body">
+                    <h5 class="card-title">{{reservation.car.brand}} modèle : {{reservation.car.model}}</h5>
+                    <p class="card-text">du: {{reservation.reservedFrom|date('Y-m-d')}} au: {{reservation.reservedTo|date('Y-m-d')}}</p>
+                    {# <a href="{{path('app_product_single',{'id':product.id})}}" class="btn btn-primary">Voir plus</a> #}
+                </div>
+        {% endfor %}
+            </div>
+        </div>
+    </section>
+</section>
+{% endblock %}

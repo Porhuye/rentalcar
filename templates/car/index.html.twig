@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProductController!
+{% endblock %}
+
+{% block body %}
+
+
+<section class="container">
+    <h1 class="text-center text-muted">Voitures</h1>
+    <section class="row">
+        {% for car in cars %}
+        <div class="col-md-3">
+            <div class="card" style="width: 18rem;">
+                <img src="{{car.picture}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{car.brand}} modèle {{car.model}}</h5>
+                    <p class="card-text">{{car.model}}</p>
+                    <a href="" class="btn btn-primary">Voir plus</a>
+                </div>
+        {% endfor %}
+            </div>
+        </div>
+    </section>
+</section>
+
+
+
+
+
+{% endblock %}
