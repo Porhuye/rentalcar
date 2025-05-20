@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+		{{car.model}}
+		{{car.brand}}
+{% endblock %}
+
+{% block body %}
+
+
+	<section class="container">
+		<h1 class="text-center text-muted">{{car.model}}
+			{{car.brand}}</h1>
+
+
+		<div class="row mx-auto mb-2">
+
+			<div class="col-md-4 mx-auto">
+				<img src="{{ asset('uploads/images/' ~ car.picture) }}" alt="{{ car.model }}" class="img-thumbnail" style="max-width: 300px; height: auto;">
+				<div class="btn-group mt-2">
+					<a href="{{path('app_car_edit',{'id':car.id})}}" class="btn btn-primary">Modifier</a>
+					<a href="{{path('app_car_suppr',{'id':car.id})}}" class="btn btn-danger">Supprimer</a>
+				</div>
+			</div>
+
+			<div class="col-md-8 mx-auto">
+				<p>La voiture est-elle disponile ? :
+					{{car.getAvailableAsText}}</p>
+				<p>Description:
+					{{car.description}}</p>
+				<p>Prix :
+					{{car.price}}
+					€</p>
+			</div>
+
+		</div>
+
+
+	</section>
+
+
+{% endblock %}
