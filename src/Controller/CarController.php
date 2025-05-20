@@ -55,7 +55,6 @@ final class CarController extends AbstractController
             $em->persist($car);
             $em->flush();
         }
-
         return $this->render('car/new.index.html.twig', [
             'form' => $form->createView(), // sert a créer une vue pour le formulaire 
             'car' => $car,

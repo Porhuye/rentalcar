@@ -2,6 +2,8 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\Car;
+use App\Entity\Reservation;
 use App\Entity\User;
 use Symfony\Component\HttpFoundation\Response;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -23,12 +25,15 @@ class DashboardController extends AbstractDashboardController
     public function configureDashboard(): Dashboard
     {
         return Dashboard::new()
-            ->setTitle('Rentalcar');
+            ->setTitle('Voiture à louer');
     }
 
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('Dashboard', 'fa fa-home');
-        yield MenuItem::linkToCrud('Utilisateur', 'fas fa-list', User::class);
+        yield MenuItem::linkToCrud('Utilisateur', 'fas fa-users', User::class);
+        yield MenuItem::linkToCrud('Car', 'fas fa-car', Car::class);
+        yield MenuItem::linkToCrud('Reservation', 'fas fa-list', Reservation::class);
+
     }
 }
